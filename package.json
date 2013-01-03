@@ -1,0 +1,8 @@
+ {
+    "name": "Replacer",
+    "description": "Replace words",
+    "version": "0.1.0",
+    "author": "Mariz Melo",
+    "dependencies": {},
+    "devDependencies": {}
+}
