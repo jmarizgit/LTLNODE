@@ -1,8 +1,14 @@
- {
-    "name": "Replacer",
-    "description": "Replace words",
+{   
+    "name": "replacer",
+    "description": "Replace word",
     "version": "0.1.0",
+    "repository": { "url": "https://github.com/jmarizgit/learning_npm" },
     "author": "Mariz Melo",
+    "main": "./lib/main",
+    "bin": { "replacer": "./bin/replacer" },
     "dependencies": {},
-    "devDependencies": {}
+    "devDependencies": {},
+    "engines":{
+        "node": "*"
+    }
 }
