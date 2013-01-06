@@ -23,13 +23,14 @@ fs.readdir(process.cwd(),function(err,files){
             if(stat.isDirectory()){
                 console.log("\t"+i+"\033[36m - "+filename+"/\33[39m");
             }else{
-                console.log("\t"+i+"\033[90m - "+filename+"/\33[39m");
+                console.log("\t"+i+"\033[90m - "+filename+"\33[39m");
             }//if_else
             i++;
             if(i == files.length){
                 console.log('');
                 process.stdout.write('\033[33mEnter your choice: \033[39m');
                 process.stdin.resume();
+                process.stdin.setEncoding('utf8');
             }else{
                 file(i);
             }
