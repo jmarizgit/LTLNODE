@@ -42,13 +42,19 @@ fs.readdir(process.cwd(),function(err,files){
         stdin.resume();
         stdin.setEncoding('utf8');
         stdin.on('data',option);
-    }
+    }//read()
     function option(data){
-        if(!files[Number(data)]){
+        var filename = files[Number(data)];
+        if(!filename){
             stdout.write('\033[31mEnter your choice: \033[39m');
         }else{
             stdin.pause();
-        }
-    }
+            fs.readFile(__dirname+'/'+filename,'utf8',function(err,data){
+                console.log('');
+                console.log('\033[90m'+data.replace(/(.*)/g, '\t$1')+'\033[39m');
+            });
+        }//ifelse
+    }//option()
+
     file(0);
 });
