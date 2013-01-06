@@ -41,6 +41,14 @@ fs.readdir(process.cwd(),function(err,files){
         stdout.write('\033[33mEnter your choice: \033[39m');
         stdin.resume();
         stdin.setEncoding('utf8');
+        stdin.on('data',option);
+    }
+    function option(data){
+        if(!files[Number(data)]){
+            stdout.write('\033[31mEnter your choice: \033[39m');
+        }else{
+            stdin.pause();
+        }
     }
     file(0);
 });
