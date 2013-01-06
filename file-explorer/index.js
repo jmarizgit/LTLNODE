@@ -19,10 +19,15 @@ fs.readdir(process.cwd(),function(err,files){
     
     console.log("\tSelect which file or directory you want to see\n");
 
+    var stats = []; //cache array
+
     function file(i){
         var filename = files[i];
 
         fs.stat(__dirname+'/'+filename,function(err,stat){
+            
+            stats[i] = stat;    //caching stats for file
+
             if(stat.isDirectory()){
                 console.log("\t"+i+"\033[36m - "+filename+"/\33[39m");
             }else{
@@ -45,14 +50,27 @@ fs.readdir(process.cwd(),function(err,files){
     }//read()
     function option(data){
         var filename = files[Number(data)];
+
         if(!filename){
             stdout.write('\033[31mEnter your choice: \033[39m');
         }else{
             stdin.pause();
-            fs.readFile(__dirname+'/'+filename,'utf8',function(err,data){
-                console.log('');
-                console.log('\033[90m'+data.replace(/(.*)/g, '\t$1')+'\033[39m');
-            });
+            if(stats[Number(data)].isDirectory()){
+                fs.readdir(__dirname+'/'+filename,function(err,files){
+                    console.log('');
+                    console.log('\t('+files.length+' file(s))');
+                    files.forEach(function(file){
+                        console.log('\t- '+file);
+                    });
+                    console.log('');
+                });
+            }else{
+                fs.readFile(__dirname+'/'+filename,'utf8',function(err,data){
+                    console.log('');
+                    console.log('\033[90m'+data.replace(/(.*)/g, '\t$1')+'\033[39m');
+                });
+            }
+            
         }//ifelse
     }//option()
 
