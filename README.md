@@ -14,6 +14,14 @@ To execute node on your terminal run the following command:
 
     $ node
 
+You can now write command or mathematical operations such as follows:
+
+```javascript
+> 2 + 2
+'4'
+```
+Simple don't you think?
+
 ##Hello world! Writing your first program in node
 
 Node runs **JavaScript**, so if you have previous experience with the language you will feel like home using it. Create a file called **hello.js** and paste the following code on it:
@@ -21,5 +29,10 @@ Node runs **JavaScript**, so if you have previous experience with the language y
 ```javascript
 console.log('Hello World!');
 ```
+
+Now run your code:
+
+    $ node hello.js
+
 
 Simple right? But we are not done yet. Node provide a great number of functions for us to write really impressive applications.
