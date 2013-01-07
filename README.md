@@ -14,7 +14,7 @@ To execute node on your terminal run the following command:
 
     $ node
 
-You can now write command or mathematical operations such as follows:
+You can now write commands or mathematical operations such as follows:
 
 ```javascript
 > 2 + 2
