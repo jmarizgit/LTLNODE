@@ -1,7 +1,7 @@
 //module dependencies
 var fs  =   require('fs'), //file system module
             stdin = process.stdin,
-            stdout = process.stdout 
+            stdout = process.stdout
 
 //list of present directories
 //console.log(fs.readdirSync(__dirname));
