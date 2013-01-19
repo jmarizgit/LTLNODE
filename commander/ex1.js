@@ -1,0 +1,25 @@
+#!/usr/bin/env node
+
+/**
+ * Module dependencies.
+ */
+
+var program = require('commander');
+
+program
+  .version('0.0.1')
+  .option('-p, --peppers', 'Add peppers')
+  .option('-P, --pineapple', 'Add pineapple')
+  .option('-b, --bbq', 'Add bbq sauce')
+  .option('-c, --cheese [type]', 'Add the specified type of cheese [marble]', 'marble')
+  .option('-f, --foo', 'Add function to recipe')
+  .parse(process.argv);
+
+function showme(){ console.log("function call")}
+
+console.log('you ordered a pizza with:');
+if (program.peppers) console.log('  - peppers');
+if (program.pineapple) console.log('  - pineappe');
+if (program.bbq) console.log('  - bbq');
+if (program.foo) showme();
+console.log('  - %s cheese', program.cheese);
