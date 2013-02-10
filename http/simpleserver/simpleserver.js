@@ -20,6 +20,9 @@ require('http').createServer(function(req,res){
       //res.end('<p>content-type: '+req.headers['content-type']+'</p><p>Data:</p><pre>'+body+'</pre>')
       res.end('<p>your name is <b>'+qs.parse(body).name+'</b></p>');
     })
+  }else{
+    res.writeHead(404)
+    res.end('Not found')
     //res.end('You sent a <em>'+req.method+'</em> request')
   }
 }).listen(3030)
