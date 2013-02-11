@@ -1,20 +1,13 @@
 var connect = require('connect')
 var server = connect.createServer()
-server.use(connect.logger('dev'))  
-server.use(connect.bodyParser())
-server.use(connect.static('static'))
+//chain syntax works
+server.use(connect.logger('dev')).use(connect.bodyParser()).use(connect.static('static')).use(method).listen(3030)
 
 //middleware
-server.use(function(req,res,next){
-  if('POST'==req.method){
-    console.log(req.body.file)
-  }else{
-    next()
-  }
-})
-
-server.use(function(req,res,next){
+function method(req,res,next){
+  console.log(req.body.file);
   if('POST' == req.method && req.body.file){
+    console.log("POST METHOD");
     fs.readFile(req.body.file.path, 'utf8', function(err,data){
       if (err) {
         res.writeHead(500)
@@ -28,10 +21,6 @@ server.use(function(req,res,next){
         '<h4>contents:</h4><pref>'+data+'</pre>'].join(''))
     })
   }else{
-    next();
+    next()
   }
-})
-
-server.listen(3030)
-
-
+}
