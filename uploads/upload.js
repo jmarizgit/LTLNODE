@@ -1,4 +1,5 @@
 var connect = require('connect')
+var fs = require('fs')
 var server = connect.createServer()
 //chain syntax works
 server.use(connect.logger('dev')).use(connect.bodyParser()).use(connect.static('static')).use(method).listen(3030)
@@ -7,7 +8,6 @@ server.use(connect.logger('dev')).use(connect.bodyParser()).use(connect.static('
 function method(req,res,next){
   console.log(req.body.file);
   if('POST' == req.method && req.body.file){
-    console.log("POST METHOD");
     fs.readFile(req.body.file.path, 'utf8', function(err,data){
       if (err) {
         res.writeHead(500)
