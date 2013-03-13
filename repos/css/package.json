@@ -1,0 +1,8 @@
+{
+  "name" : "playcss",
+  "description" : "playground for css properties",
+  "version" : "0.0.1",
+  "dependencies" : {
+    "css" : ""
+  }
+}
