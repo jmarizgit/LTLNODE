@@ -1,7 +1,7 @@
 var htmlparser = require("htmlparser");
 var sys = require("sys");
 
-var rawHtml = "Xyz <script language= javascript>var foo = '<<bar>>';< /  script><!--<!-- Waah! -- -->";
+var rawHtml = "<p>hello <span>world</span> again</p>";
 
 var handler = new htmlparser.DefaultHandler(function (error, dom) {
     if (error)
